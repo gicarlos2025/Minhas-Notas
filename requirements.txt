@@ -1,0 +1,4 @@
+# Dependências do projeto
+# Nenhuma dependência externa adicional é necessária para a aplicação principal.
+# O módulo Tkinter faz parte da biblioteca padrão do Python, mas no Fedora/Linux
+# é necessário instalar o pacote do sistema: python3-tkinter
