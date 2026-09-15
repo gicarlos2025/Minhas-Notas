@@ -77,7 +77,9 @@ class BlocoDeNotas:
 
         self.root = root
         self.root.title("Minhas Notas")
-        self.root.geometry("800x600")
+        self.root.geometry("900x640")
+        self.root.minsize(700, 480)
+        self.root.configure(bg="#f3f4f6")
 
         self.caminho_arquivo = None
         self.configuracao_fonte = ConfiguracaoFonte()
@@ -85,8 +87,7 @@ class BlocoDeNotas:
             family=self.configuracao_fonte.familia,
             size=self.configuracao_fonte.tamanho,
         )
-
-        self.menu_bar = tk.Menu(self.root)
+        self.menu_bar = tk.Menu(self.root, bg="#ffffff", fg="#1f2937", activebackground="#e5e7eb", activeforeground="#111827", tearoff=0)
         self.root.config(menu=self.menu_bar)
 
         self.menu_arquivo = tk.Menu(self.menu_bar, tearoff=0)
@@ -118,27 +119,37 @@ class BlocoDeNotas:
             self.root,
             text="Linhas: 1 | Palavras: 0 | Caracteres: 0",
             anchor="e",
-            padx=10,
-            pady=4,
-            relief="sunken",
+            padx=14,
+            pady=6,
+            bg="#eef2f7",
+            fg="#374151",
+            relief="flat",
             font=("Segoe UI", 9),
         )
         self.barra_status.pack(side="bottom", fill="x")
 
-        container_texto = tk.Frame(self.root)
-        container_texto.pack(fill="both", expand=True)
+        container_texto = tk.Frame(self.root, bg="#f3f4f6")
+        container_texto.pack(fill="both", expand=True, padx=12, pady=(10, 8))
 
         self.texto = tk.Text(
             container_texto,
             font=self.fonte_texto,
             wrap="word",
             undo=True,
-            padx=10,
-            pady=10,
+            padx=12,
+            pady=12,
+            bg="#ffffff",
+            fg="#111827",
+            insertbackground="#111827",
+            relief="flat",
+            borderwidth=1,
+            highlightthickness=1,
+            highlightbackground="#dfe3eb",
+            highlightcolor="#93c5fd",
         )
         self.texto.pack(fill="both", expand=True, side="left")
 
-        self.scrollbar = tk.Scrollbar(container_texto, command=self.texto.yview)
+        self.scrollbar = tk.Scrollbar(container_texto, command=self.texto.yview, troughcolor="#f3f4f6", width=12)
         self.scrollbar.pack(side="right", fill="y")
         self.texto.config(yscrollcommand=self.scrollbar.set)
 

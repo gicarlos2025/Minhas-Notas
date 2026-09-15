@@ -2,6 +2,8 @@ import os
 import tempfile
 import unittest
 
+import tkinter as tk
+
 from MinhasNotas import EstatisticasTexto, RepositorioArquivosTexto
 
 
